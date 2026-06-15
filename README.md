@@ -1,67 +1,51 @@
-# Sistema de Biblioteca
+**Sistema de Biblioteca**
+**Trabalho A1 – Programação Orientada a Objetos (Java)**
 
-Trabalho A1 da disciplina de Programação Orientada a Objetos em Java.  
-O sistema simula o gerenciamento de uma biblioteca: cadastro de livros, usuários, funcionários e controle de empréstimos.
+Este projeto foi desenvolvido com o objetivo de simular o funcionamento básico de uma biblioteca, permitindo o gerenciamento de livros, usuários, funcionários e empréstimos. A ideia foi criar um sistema simples, mas que aplicasse na prática os principais conceitos estudados na disciplina de Programação Orientada a Objetos.
 
-**Dupla:** [Seu nome] e [Nome do colega]  
-**Período:** 3º período — Ciências da Computação  
+**Dupla:** Gabriel Magalhães e Pedro Mesquita
+3º período – Ciências da Computação
 
----
+### Funcionalidades do sistema
 
-## O que o sistema faz
+O sistema permite:
 
-- Cadastrar, editar, listar e remover livros
-- Cadastrar, editar, listar e remover usuários
-- Cadastrar, editar, listar e remover funcionários
-- Realizar empréstimos de livros e registrar devoluções
-- Calcular multa automática por atraso (R$ 0,50 por dia)
-- Salvar todos os dados em arquivos (os dados persistem entre execuções)
-- Registrar tudo que acontece em um arquivo de log
+* Cadastrar, consultar, editar e remover livros;
+* Cadastrar, consultar, editar e remover usuários;
+* Cadastrar, consultar, editar e remover funcionários;
+* Registrar empréstimos e devoluções de livros;
+* Calcular automaticamente multas por atraso na devolução, no valor de R$ 0,50 por dia;
+* Salvar todas as informações em arquivos, mantendo os dados mesmo após o encerramento do programa;
+* Registrar as operações realizadas em um arquivo de log para acompanhamento do uso do sistema.
 
----
-
-## Como rodar
-
-Precisa ter o Java instalado (JDK 8 ou superior).
-
-```bash
-# Dentro da pasta do projeto, compile tudo de uma vez:
-javac -d out src/util/*.java src/model/*.java src/controller/*.java src/view/*.java src/Main.java
-
-# Depois é só rodar:
-java -cp out Main
-```
-
-Se estiver usando IntelliJ ou Eclipse, basta importar o projeto e rodar o `Main.java`.
-
----
-
-## Estrutura de pastas
+### Organização do projeto
 
 ```
 src/
 ├── Main.java
-├── model/          → as classes que representam os dados
-├── view/           → os menus e interação com o usuário
-├── controller/     → a lógica de cada funcionalidade
-└── util/           → Logger e a classe de persistência
-dados/              → arquivos gerados automaticamente ao rodar
+├── model/       → classes que representam as entidades do sistema
+├── view/        → menus e interação com o usuário
+├── controller/  → regras de negócio e controle das funcionalidades
+└── util/        → classes auxiliares, como persistência e logs
+
+dados/           → pasta criada automaticamente para armazenar os arquivos do sistema
 ```
 
----
+### Conceitos de Programação Orientada a Objetos utilizados
 
-## Requisitos técnicos implementados
+Durante o desenvolvimento do projeto, foram aplicados diversos conceitos trabalhados em aula, como:
 
-- **Herança e classe abstrata:** `Pessoa` é abstrata, `Usuario` e `Funcionario` herdam dela
-- **Interface:** `Catalogavel` é implementada por `Livro`
-- **Polimorfismo:** sobrescrita do método `getTipo()` e sobrecarga do `getInfo()`
-- **Encapsulamento:** todos os atributos são privados com getters e setters
-- **3 CRUDs com relacionamento:** Livro, Usuario e Emprestimo (empréstimo usa os IDs de usuário e livro como chave estrangeira)
-- **Serialização:** classe `Repositorio<T>` salva e carrega qualquer lista de objetos em arquivo `.dat`
-- **Log:** classe `Logger` registra todas as operações em `dados/sistema.log`
-- **Arquitetura MVC:** model, view e controller separados em pacotes diferentes
+* **Herança:** a classe abstrata `Pessoa` serve de base para `Usuario` e `Funcionario`;
+* **Interfaces:** a interface `Catalogavel` foi implementada pela classe `Livro`;
+* **Polimorfismo:** utilização de sobrescrita e sobrecarga de métodos;
+* **Encapsulamento:** atributos privados com acesso controlado por getters e setters;
+* **Relacionamento entre entidades:** os empréstimos associam usuários e livros por meio de seus identificadores;
+* **Serialização:** utilizada para salvar e recuperar os dados dos arquivos;
+* **Registro de logs:** todas as operações importantes são registradas para fins de controle;
+* **Arquitetura MVC:** separação entre dados, interface e lógica do sistema, facilitando a organização e manutenção do código.
 
----
+O desenvolvimento deste trabalho permitiu colocar em prática os conteúdos da disciplina, proporcionando uma experiência mais próxima de uma aplicação real e reforçando conceitos importantes da Programação Orientada a Objetos em Java.
+
 
 ## Uso de IA
 
